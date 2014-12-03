@@ -1,0 +1,8 @@
+image: paulczar/meez
+env:
+  - CI=drone
+  - USE_SYSTEM_GECODE=1
+script:
+  - rake prepare:chefdk
+  - chef exec rake prepare
+  - chef exec rake style unit
