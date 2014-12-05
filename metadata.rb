@@ -69,7 +69,7 @@ attribute 'roundcube/product_name',
 attribute 'roundcube/skin',
   :display_name => 'Roundcube Skin',
   :description => 'The name of the skin to use for Roundcube\'s appearance.',
-  :default => 'Roundcube Webmail',
+  :default => 'larry',
   :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/listen_port',
