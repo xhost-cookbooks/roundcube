@@ -50,8 +50,8 @@ attribute 'roundcube/install_dir',
 
 attribute 'roundcube/default_host',
   :display_name => 'Roundcube Default Host',
-  :description => 'The IMAP server host for Roundcube to interface.',
-  :default => 'localhost',
+  :description => 'The IMAP server host for Roundcube to interface (default: GMail).',
+  :default => 'ssl://imap.gmail.com:993',
   :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/support_url',
@@ -122,12 +122,12 @@ attribute 'roundcube/smtp/port',
 
 attribute 'roundcube/smtp/user',
   :display_name => 'Roundcube SMTP User',
-  :description => 'The SMTP username.',
-  :default => '',
+  :description => 'The SMTP username (default: user provided on login form).',
+  :default => '%u',
   :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/smtp/password',
   :display_name => 'Roundcube SMTP Password',
-  :description => 'The SMTP password.',
-  :default => '',
+  :description => 'The SMTP password (default: password provided on login form).',
+  :default => '%p',
   :recipes => ['roundcube::default', 'roundcube::configure']
