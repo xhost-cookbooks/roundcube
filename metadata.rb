@@ -45,7 +45,7 @@ attribute 'roundcube/version',
 attribute 'roundcube/install_dir',
   :display_name => 'Roundcube Installation Directory',
   :description => 'The destination directory to extract Roundcube to (minus the trailing /roundcube).',
-  :default => '/srv/roundcube',
+  :default => '/srv',
   :recipes => ['roundcube::default', 'roundcube::install']
 
 attribute 'roundcube/default_host',
