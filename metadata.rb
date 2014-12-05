@@ -117,7 +117,7 @@ attribute 'roundcube/smtp/server',
 attribute 'roundcube/smtp/port',
   :display_name => 'Roundcube SMTP Port',
   :description => 'The port of the SMTP server for sending mails.',
-  :default => '25',
+  :default => '587',
   :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/smtp/user',
