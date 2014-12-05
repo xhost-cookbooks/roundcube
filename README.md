@@ -16,7 +16,8 @@ Prerequisites
 -------------
 
 ### Database Setup
-This cookbook purposely does not provide any functionality to setup and configure the database component of Roundcube.
+This cookbook purposely does not provide any functionality to setup and configure the database component of Roundcube. It is recommended that a different host is used as the database server.
+
 Create a database and import the initial SQl, see http://trac.roundcube.net/wiki/Howto_Install#DatabaseConfiguration.
 
 #### MySQL Quick Setup
