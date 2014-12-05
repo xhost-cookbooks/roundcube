@@ -36,6 +36,8 @@ template "#{node['roundcube']['install_dir']}/roundcube/config/config.inc.php" d
   )
 end
 
+directory '/etc/roundcube'
+
 # convenience symlink
 link '/etc/roundcube/config' do
   to "#{node['roundcube']['install_dir']}/roundcube/config/config.inc.php"
