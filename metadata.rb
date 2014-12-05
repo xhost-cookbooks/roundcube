@@ -11,16 +11,18 @@ version          '0.1.0'
   supports os
 end
 
+depends          'apt'
 depends          'ark'
 depends          'mysql'
 depends          'nginx'
+depends          'openssl'
 depends          'php'
 
 recipe           'roundcube::default',      "Installs and configures Roundcube."
 recipe           'roundcube::install',      "Installs Roundcube only."
 recipe           'roundcube::configure',    "Configures Roundcube."
 recipe           'roundcube::nginx',        "Configures Roundcube on NGINX."
-recipe           'roundcube::nginx_vhost',   "Sets up an NGINX site only."
+recipe           'roundcube::nginx_vhost',  "Sets up an NGINX site only."
 
 attribute 'roundcube/download_url',
   :display_name => 'Roundcube Download URL',
