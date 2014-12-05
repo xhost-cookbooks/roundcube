@@ -31,3 +31,8 @@ end
 include_recipe 'roundcube::nginx_vhost'
 
 execute 'nxensite 00-roundcube'
+
+service 'nginx' do
+	provider Chef::Provider::Service::Upstart
+	action [ :enable, :start ]
+end
