@@ -18,6 +18,7 @@
 # limitations under the License.
 #
 
+include_recipe 'apt'
 include_recipe 'php'
 include_recipe 'mysql::client'
 include_recipe 'roundcube::install'
