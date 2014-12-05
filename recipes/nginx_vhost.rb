@@ -25,5 +25,5 @@ template '/etc/nginx/sites-available/00-roundcube' do
     :listen_port => node['roundcube']['listen_port'],
     :server_name => node['roundcube']['server_name']
   )
-  notifies :restart, "service[nginx]", :delayed
+  notifies :restart, 'service[nginx]', :delayed
 end
