@@ -28,49 +28,49 @@ attribute 'roundcube/download_url',
   :display_name => 'Roundcube Download URL',
   :description => 'URL to fetch the Roundcube tarball from.',
   :default => 'https://github.com/roundcube/roundcubemail/releases/download/1.0.2/roundcubemail-1.0.2.tar.gz',
-  :recipes => ['roundcube::install']
+  :recipes => ['roundcube::default', 'roundcube::install']
 
 attribute 'roundcube/download_checksum',
   :display_name => 'Roundcube Dowload Checksum',
   :description => 'The checksum of the Roundcube tarball.',
   :default => '1c1560a7a56e6884b45c49f52961dbbb3f6bacbc7e7c755440750a1ab027171c',
-  :recipes => ['roundcube::install']
+  :recipes => ['roundcube::default', 'roundcube::install']
 
 attribute 'roundcube/version',
   :display_name => 'Roundcube Version',
   :description => 'Roundcube Version string.',
   :default => '1.0.2',
-  :recipes => ['roundcube::install']
+  :recipes => ['roundcube::default', 'roundcube::install']
 
 attribute 'roundcube/install_dir',
   :display_name => 'Roundcube Installation Directory',
   :description => 'The destination directory to extract Roundcube to (minus the trailing /roundcube).',
   :default => '/srv/roundcube',
-  :recipes => ['roundcube::install']
+  :recipes => ['roundcube::default', 'roundcube::install']
 
 attribute 'roundcube/default_host',
   :display_name => 'Roundcube Default Host',
   :description => 'The IMAP server host for Roundcube to interface.',
   :default => 'localhost',
-  :recipes => ['roundcube::configure']
+  :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/support_url',
   :display_name => 'Roundcube Support URL',
   :description => 'The support URL to display for the Roundcube service.',
   :default => '',
-  :recipes => ['roundcube::configure']
+  :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/product_name',
   :display_name => 'Roundcube Product Name',
   :description => 'The product name to display for the Roundcube service.',
   :default => 'Roundcube Webmail',
-  :recipes => ['roundcube::configure']
+  :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/skin',
   :display_name => 'Roundcube Skin',
   :description => 'The name of the skin to use for Roundcube\'s appearance.',
   :default => 'Roundcube Webmail',
-  :recipes => ['roundcube::configure']
+  :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/listen_port',
   :display_name => 'Roundcube Listen Port',
@@ -88,46 +88,46 @@ attribute 'roundcube/database/host',
   :display_name => 'Roundcube Database Host',
   :description => 'Database server host name or IP address.',
   :default => 'localhost',
-  :recipes => ['roundcube::configure']
+  :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/database/user',
   :display_name => 'Roundcube Database Username',
   :description => 'Username to grant access privileges for database.',
   :default => 'roundcube',
-  :recipes => ['roundcube::configure']
+  :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/database/schema',
   :display_name => 'Roundcube Database Name',
   :description => 'Name of the Roundcube database.',
   :default => 'roundcubemail',
-  :recipes => ['roundcube::configure']
+  :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/database/password',
   :display_name => 'Roundcube Database Password',
   :description => 'Random generated string via secure_password or manually set.',
   :default => 'secure_password',
-  :recipes => ['roundcube::configure']
+  :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/smtp/server',
   :display_name => 'Roundcube SMTP Server',
   :description => 'The hostname or IP of the SMTP server for Roundcube to interface with for sending mails.',
   :default => 'smtp.gmail.com',
-  :recipes => ['roundcube::configure']
+  :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/smtp/port',
   :display_name => 'Roundcube SMTP Port',
   :description => 'The port of the SMTP server for sending mails.',
   :default => '25',
-  :recipes => ['roundcube::configure']
+  :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/smtp/user',
   :display_name => 'Roundcube SMTP User',
   :description => 'The SMTP username.',
   :default => '',
-  :recipes => ['roundcube::configure']
+  :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/smtp/password',
   :display_name => 'Roundcube SMTP Password',
   :description => 'The SMTP password.',
   :default => '',
-  :recipes => ['roundcube::configure']
+  :recipes => ['roundcube::default', 'roundcube::configure']
