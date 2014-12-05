@@ -104,7 +104,7 @@ attribute 'roundcube/database/schema',
 
 attribute 'roundcube/database/password',
   :display_name => 'Roundcube Database Password',
-  :description => 'Random generated string via secure_password or manually set.',
+  :description => 'Database password for the roundcube database user.',
   :default => 'secure_password',
   :recipes => ['roundcube::default', 'roundcube::configure']
 
