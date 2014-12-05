@@ -1,11 +1,55 @@
 Roundcube Webmail Cookbook
 ==========================
 
+[![Build Status](https://travis-ci.org/xhost-cookbooks/roundcube.svg)](https://travis-ci.org/xhost-cookbooks/roundcube)
+[![Code Climate](https://codeclimate.com/github/xhost-cookbooks/system.png)](https://codeclimate.com/github/xhost-cookbooks/roundcube)
+
 A Chef cookbook for Roundcube Webmail.
 
 Upstream:
 - https://github.com/roundcube/roundcubemail
 - http://roundcube.net/
+- http://trac.roundcube.net/wiki
+
+Prerequisites
+-------------
+
+### Database Setup
+This cookbook purposely does not provide any functionality to setup and configure the database component of Roundcube.
+Create a database and import the initial SQl, see http://trac.roundcube.net/wiki/Howto_Install#DatabaseConfiguration.
+
+#### MySQL Quick Setup
+
+##### Grant privileges
+
+`GRANT ALL ON *.* to roundcube@localhost IDENTIFIED BY 'secure';` or, all hosts:
+`GRANT ALL ON *.* to roundcube@'%' IDENTIFIED BY 'secure';`
+
+Requirements
+------------
+### Supported Platforms
+ * Debian/Ubuntu
+
+Attributes
+----------
+
+ * `node['roundcube']['version']` - Roundcube Version string
+ * `node['roundcube']['download_url']` - URL to fetch the Roundcube tarball from
+ * `node['roundcube']['download_checksum']` - The checksum of the Roundcube tarball
+ * `node['roundcube']['install_dir']` - The destination directory to extract Roundcube to (minus the trailing /roundcube)
+ * `node['roundcube']['default_host']` - The IMAP server host for Roundcube to interface
+ * `node['roundcube']['support_url']` - The support URL to display for the Roundcube service
+ * `node['roundcube']['product_name']` - The product name to display for the Roundcube service
+ * `node['roundcube']['skin']` - The name of the skin to use for Roundcube's appearance
+ * `node['roundcube']['listen_port']` - The listen port to configure with Roundcube's web server
+ * `node['roundcube']['server_name']` - The server_name to configure with Roundcube\'s web server
+ * `node['roundcube']['database']['user']` - Username to grant access privileges for database
+ * `node['roundcube']['database']['password']` - Database password for the roundcube database user
+ * `node['roundcube']['database']['schema']` - Name of the Roundcube database
+ * `node['roundcube']['smtp']['server']` - The hostname or IP of the SMTP server for Roundcube to interface with for sending mails
+ * `node['roundcube']['smtp']['port']` - The port of the SMTP server for sending mails
+ * `node['roundcube']['smtp']['user']` = The SMTP username
+ * `node['roundcube']['smtp']['password']` = The SMTP password
 
 Recipes
 -------
@@ -27,6 +71,11 @@ TODO
 Usage
 -----
 TODO
+
+Troubleshooting
+---------------
+
+For Roundcube itself, see http://trac.roundcube.net/wiki/Howto_Install#Troubleshooting.
 
 License & Authors
 -----------------
