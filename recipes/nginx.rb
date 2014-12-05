@@ -28,6 +28,7 @@ end
 
 include_recipe 'roundcube::nginx_vhost'
 
+execute 'nxdissite default'
 execute 'nxensite 00-roundcube'
 
 service 'nginx' do
