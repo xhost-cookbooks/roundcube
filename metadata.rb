@@ -48,6 +48,42 @@ attribute 'roundcube/install_dir',
   :default => '/srv/roundcube',
   :recipes => ['roundcube::install']
 
+attribute 'roundcube/default_host',
+  :display_name => 'Roundcube Default Host',
+  :description => 'The IMAP server host for Roundcube to interface.',
+  :default => 'localhost',
+  :recipes => ['roundcube::configure']
+
+attribute 'roundcube/support_url',
+  :display_name => 'Roundcube Support URL',
+  :description => 'The support URL to display for the Roundcube service.',
+  :default => '',
+  :recipes => ['roundcube::configure']
+
+attribute 'roundcube/product_name',
+  :display_name => 'Roundcube Product Name',
+  :description => 'The product name to display for the Roundcube service.',
+  :default => 'Roundcube Webmail',
+  :recipes => ['roundcube::configure']
+
+attribute 'roundcube/skin',
+  :display_name => 'Roundcube Skin',
+  :description => 'The name of the skin to use for Roundcube\'s appearance.',
+  :default => 'Roundcube Webmail',
+  :recipes => ['roundcube::configure']
+
+attribute 'roundcube/listen_port',
+  :display_name => 'Roundcube Listen Port',
+  :description => 'The listen port to configure with Roundcube\'s web server.',
+  :default => '80',
+  :recipes => ['roundcube::nginx']
+
+attribute 'roundcube/server_name',
+  :display_name => 'Roundcube Server Name',
+  :description => 'The server_name to configure with Roundcube\'s web server.',
+  :default => 'localhost',
+  :recipes => ['roundcube::nginx']
+
 attribute 'roundcube/database/host',
   :display_name => 'Roundcube Database Host',
   :description => 'Database server host name or IP address.',
@@ -76,6 +112,12 @@ attribute 'roundcube/smtp/server',
   :display_name => 'Roundcube SMTP Server',
   :description => 'The hostname or IP of the SMTP server for Roundcube to interface with for sending mails.',
   :default => 'smtp.gmail.com',
+  :recipes => ['roundcube::configure']
+
+attribute 'roundcube/smtp/port',
+  :display_name => 'Roundcube SMTP Port',
+  :description => 'The port of the SMTP server for sending mails.',
+  :default => '25',
   :recipes => ['roundcube::configure']
 
 attribute 'roundcube/smtp/user',
