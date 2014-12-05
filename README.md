@@ -1,10 +1,11 @@
 Roundcube Webmail Cookbook
 ==========================
 
+[![Roundcube Cookbook](http://img.shields.io/badge/cookbook-roundcube%20v0.1.0-lightgrey.svg)](https://github.com/xhost-cookbooks/roundcube)
 [![Build Status](https://travis-ci.org/xhost-cookbooks/roundcube.svg)](https://travis-ci.org/xhost-cookbooks/roundcube)
 [![Code Climate](https://codeclimate.com/github/xhost-cookbooks/system.png)](https://codeclimate.com/github/xhost-cookbooks/roundcube)
 
-A Chef cookbook for Roundcube Webmail.
+A Chef cookbook for Roundcube Webmail, a PHP-based webmail application.
 
 Upstream:
 - https://github.com/roundcube/roundcubemail
