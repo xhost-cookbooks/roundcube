@@ -1,5 +1,3 @@
-# Encoding: utf-8
-#
 # Cookbook Name:: roundcube
 # Recipe:: nginx
 #
