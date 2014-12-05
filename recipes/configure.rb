@@ -1,7 +1,7 @@
 # Encoding: utf-8
 #
 # Cookbook Name:: roundcube
-# Recipe:: config
+# Recipe:: configure
 #
 # Copyright 2014, Chris Fordham
 #
