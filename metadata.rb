@@ -111,7 +111,7 @@ attribute 'roundcube/database/password',
 attribute 'roundcube/smtp/server',
   :display_name => 'Roundcube SMTP Server',
   :description => 'The hostname or IP of the SMTP server for Roundcube to interface with for sending mails.',
-  :default => 'smtp.gmail.com',
+  :default => 'tls://smtp.gmail.com',
   :recipes => ['roundcube::default', 'roundcube::configure']
 
 attribute 'roundcube/smtp/port',
