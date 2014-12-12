@@ -21,11 +21,15 @@
 include_recipe 'nginx'
 
 # additional packages
-[ 'php5-fpm', 'php5-mcrypt', 'php5-intl', 'php5-cli', 'php5-mysql'].each {|package| package package}
+['php5-fpm',
+ 'php5-mcrypt',
+ 'php5-intl',
+ 'php5-cli',
+ 'php5-mysql'].each { |package| package package }
 
 service 'php5-fpm' do
   provider Chef::Provider::Service::Upstart
-  action [ :enable, :start ]
+  action [:enable, :start]
 end
 
 include_recipe 'roundcube::nginx_vhost'
@@ -34,5 +38,5 @@ execute 'nxdissite default'
 execute 'nxensite 00-roundcube'
 
 service 'nginx' do
-  action [ :enable, :start ]
+  action [:enable, :start]
 end

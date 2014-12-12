@@ -21,18 +21,18 @@
 template "#{node['roundcube']['install_dir']}/roundcube/config/config.inc.php" do
   source 'config.inc.php.erb'
   variables(
-    :database_schema => node['roundcube']['database']['schema'],
-    :database_host => node['roundcube']['database']['host'],
-    :database_user => node['roundcube']['database']['user'],
-    :database_password => node['roundcube']['database']['password'],
-    :default_host => node['roundcube']['default_host'],
-    :smtp_server => node['roundcube']['smtp']['server'],
-    :smtp_port => node['roundcube']['smtp']['port'],
-    :smtp_user => node['roundcube']['smtp']['user'],
-    :smtp_password => node['roundcube']['smtp']['password'],
-    :support_url => node['roundcube']['support_url'],
-    :product_name => node['roundcube']['product_name'],
-    :skin => node['roundcube']['skin']
+    database_schema: node['roundcube']['database']['schema'],
+    database_host: node['roundcube']['database']['host'],
+    database_user: node['roundcube']['database']['user'],
+    database_password: node['roundcube']['database']['password'],
+    default_host: node['roundcube']['default_host'],
+    smtp_server: node['roundcube']['smtp']['server'],
+    smtp_port: node['roundcube']['smtp']['port'],
+    smtp_user: node['roundcube']['smtp']['user'],
+    smtp_password: node['roundcube']['smtp']['password'],
+    support_url: node['roundcube']['support_url'],
+    product_name: node['roundcube']['product_name'],
+    skin: node['roundcube']['skin']
   )
 end
 

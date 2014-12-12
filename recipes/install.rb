@@ -19,11 +19,11 @@
 #
 
 ark 'roundcube' do
-	url node['roundcube']['download_url']
-	path node['roundcube']['install_dir']
-	checksum node['roundcube']['download_checksum']
-	version node['roundcube']['version']
-	owner 'www-data'
-	group 'www-data'
-	action :put
+  url node['roundcube']['download_url']
+  path node['roundcube']['install_dir']
+  checksum node['roundcube']['download_checksum']
+  version node['roundcube']['version']
+  owner 'www-data'
+  group 'www-data'
+  action :put
 end
