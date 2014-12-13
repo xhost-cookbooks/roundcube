@@ -49,7 +49,7 @@ Attributes
  * `node['roundcube']['product_name']` - The product name to display for the Roundcube service
  * `node['roundcube']['skin']` - The name of the skin to use for Roundcube's appearance
  * `node['roundcube']['listen_port']` - The listen port to configure with Roundcube's web server
- * `node['roundcube']['server_name']` - The server_name to configure with Roundcube\'s web server
+ * `node['roundcube']['server_name']` - The server_name to configure with Roundcube's web server
  * `node['roundcube']['database']['user']` - Username to grant access privileges for database
  * `node['roundcube']['database']['password']` - Database password for the roundcube database user
  * `node['roundcube']['database']['schema']` - Name of the Roundcube database
@@ -60,24 +60,24 @@ Attributes
 
 Recipes
 -------
-### default
+### `roundcoube::default`
 The default recipe will update the apt package list initially, then install PHP & MySQL client and lastly install and configure Roundcube.
 
-### install
+### `roundcube::install`
 Installs Roundcube as defined by node attributes using ark.
 
-### configure
+### `roundcube::configure`
 Configures Roundcube only.
 
-### nginx
+### `roundcube::nginx`
 Installs and configures NGINX including needed dependencies and a vhost for Roundcube.
 
-### nginx_vhost
+### `roundcube::nginx_vhost`
 A dry recipe that provides a configuration file for an NGINX Roundcube vhost only. The NGINX service is notified to restart.
 
 Usage
 -----
-The default recipe will install and configure Roundcube intefacing GMail for both IMAP and SMTP; no web server is configured - it is recommended to subsequently run the `roundcube::nginx` recipe.
+The default recipe will install and configure Roundcube intefacing GMail for both IMAP and SMTP; no web server is configured - it is recommended to subsequently run the `roundcube::nginx` recipe (Apache HTTPd support TODO or contrib welcome).
 
 Note: this cookbook does not configure a database server for Roundcube, this should be done independently (see prerequisites above).
 
