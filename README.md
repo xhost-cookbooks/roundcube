@@ -24,8 +24,13 @@ Create a database and import the initial SQl, see http://trac.roundcube.net/wiki
 
 ##### Grant privileges
 
-`GRANT ALL ON *.* to roundcube@localhost IDENTIFIED BY 'secure';` or, all hosts:
-`GRANT ALL ON *.* to roundcube@'%' IDENTIFIED BY 'secure';`
+```
+GRANT ALL ON *.* to roundcube@localhost IDENTIFIED BY 's3cure_as';
+```
+Or, all hosts:
+```
+GRANT ALL ON *.* to roundcube@'%' IDENTIFIED BY 's3cure_as';
+```
 
 Requirements
 ------------
@@ -72,7 +77,9 @@ A dry recipe that provides a configuration file for an NGINX Roundcube vhost onl
 
 Usage
 -----
-By default, the default recipe will install and configure Roundcube intefacing GMail for both IMAP and SMTP. No web server is configured - it is recommended to subsequently run the `roundcube::nginx` recipe. Note that this cookbook does not configure a database server for Roundcube, this should be done independently (see prerequisites above).
+The default recipe will install and configure Roundcube intefacing GMail for both IMAP and SMTP; no web server is configured - it is recommended to subsequently run the `roundcube::nginx` recipe.
+
+Note: this cookbook does not configure a database server for Roundcube, this should be done independently (see prerequisites above).
 
 Troubleshooting
 ---------------
