@@ -59,20 +59,20 @@ Recipes
 The default recipe will update the apt package list initially, then install PHP & MySQL client and lastly install and configure Roundcube.
 
 ### install
-TODO
+Installs Roundcube as defined by node attributes using ark.
 
 ### configure
-TODO
+Configures Roundcube only.
 
 ### nginx
-TODO
+Installs and configures NGINX including needed dependencies and a vhost for Roundcube.
 
 ### nginx_vhost
-TODO
+A dry recipe that provides a configuration file for an NGINX Roundcube vhost only. The NGINX service is notified to restart.
 
 Usage
 -----
-TODO
+By default, the default recipe will install and configure Roundcube intefacing GMail for both IMAP and SMTP. No web server is configured - it is recommended to subsequently run the `roundcube::nginx` recipe. Note that this cookbook does not configure a database server for Roundcube, this should be done independently (see prerequisites above).
 
 Troubleshooting
 ---------------
