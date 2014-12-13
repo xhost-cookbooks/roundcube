@@ -37,6 +37,8 @@ Requirements
 ### Supported Platforms
  * Debian/Ubuntu
 
+Contribution for other platforms welcome (submit a pull request).
+
 Attributes
 ----------
 
@@ -60,19 +62,19 @@ Attributes
 
 Recipes
 -------
-### `roundcoube::default`
+#### `roundcube::default`
 The default recipe will update the apt package list initially, then install PHP & MySQL client and lastly install and configure Roundcube.
 
-### `roundcube::install`
+#### `roundcube::install`
 Installs Roundcube as defined by node attributes using ark.
 
-### `roundcube::configure`
+#### `roundcube::configure`
 Configures Roundcube only.
 
-### `roundcube::nginx`
+#### `roundcube::nginx`
 Installs and configures NGINX including needed dependencies and a vhost for Roundcube.
 
-### `roundcube::nginx_vhost`
+#### `roundcube::nginx_vhost`
 A dry recipe that provides a configuration file for an NGINX Roundcube vhost only. The NGINX service is notified to restart.
 
 Usage
