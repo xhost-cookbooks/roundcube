@@ -12,6 +12,7 @@ version          '0.1.0'
 end
 
 depends          'apt'
+depends          'build-essential'
 depends          'ark'
 depends          'mysql'
 depends          'nginx'
