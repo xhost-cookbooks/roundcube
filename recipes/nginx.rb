@@ -19,14 +19,10 @@
 #
 
 include_recipe 'nginx'
+include_recipe 'php-fpm'
 
-# additional packages
-[ 'php5-fpm', 'php5-mcrypt', 'php5-intl', 'php5-cli', 'php5-mysql'].each {|package| package package}
-
-service 'php5-fpm' do
-  provider Chef::Provider::Service::Upstart
-  action [ :enable, :start ]
-end
+# additional (recommended) packages
+[ 'php5-mcrypt', 'php5-intl', 'php5-cli', 'php5-mysql'].each {|package| package package}
 
 include_recipe 'roundcube::nginx_vhost'
 
