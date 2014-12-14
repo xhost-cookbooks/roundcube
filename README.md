@@ -87,7 +87,7 @@ Note: this cookbook does not configure a database server for Roundcube, this sho
 
 Prototyping
 -----------
-TODO
+For further prototyping Roundcube on a server node: https://github.com/chef-blueprints/roundcube.
 
 Troubleshooting
 ---------------
