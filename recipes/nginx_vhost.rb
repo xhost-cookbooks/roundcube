@@ -21,9 +21,9 @@
 template '/etc/nginx/sites-available/00-roundcube' do
   source 'nginx_vhost.erb'
   variables(
-    :roundcube_dir => "#{node['roundcube']['install_dir']}/roundcube",
-    :listen_port => node['roundcube']['listen_port'],
-    :server_name => node['roundcube']['server_name']
+    roundcube_dir: "#{node['roundcube']['install_dir']}/roundcube",
+    listen_port: node['roundcube']['listen_port'],
+    server_name: node['roundcube']['server_name']
   )
   notifies :restart, 'service[nginx]', :delayed
 end

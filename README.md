@@ -1,7 +1,7 @@
 Roundcube Webmail Cookbook
 ==========================
 
-[![Roundcube Cookbook](http://img.shields.io/badge/cookbook-roundcube%20v0.1.0-lightgrey.svg)](https://github.com/xhost-cookbooks/roundcube)
+[![Roundcube Cookbook](http://img.shields.io/badge/cookbook-roundcube%20v0.1.0-green.svg)](https://github.com/xhost-cookbooks/roundcube)
 [![Build Status](https://travis-ci.org/xhost-cookbooks/roundcube.svg)](https://travis-ci.org/xhost-cookbooks/roundcube)
 [![Code Climate](https://codeclimate.com/github/xhost-cookbooks/system.png)](https://codeclimate.com/github/xhost-cookbooks/roundcube)
 
@@ -24,13 +24,20 @@ Create a database and import the initial SQl, see http://trac.roundcube.net/wiki
 
 ##### Grant privileges
 
-`GRANT ALL ON *.* to roundcube@localhost IDENTIFIED BY 'secure';` or, all hosts:
-`GRANT ALL ON *.* to roundcube@'%' IDENTIFIED BY 'secure';`
+```
+GRANT ALL ON *.* to roundcube@localhost IDENTIFIED BY 's3cure_as';
+```
+Or, all hosts:
+```
+GRANT ALL ON *.* to roundcube@'%' IDENTIFIED BY 's3cure_as';
+```
 
 Requirements
 ------------
 ### Supported Platforms
  * Debian/Ubuntu
+
+Contribution for other platforms welcome (submit a pull request).
 
 Attributes
 ----------
@@ -44,7 +51,7 @@ Attributes
  * `node['roundcube']['product_name']` - The product name to display for the Roundcube service
  * `node['roundcube']['skin']` - The name of the skin to use for Roundcube's appearance
  * `node['roundcube']['listen_port']` - The listen port to configure with Roundcube's web server
- * `node['roundcube']['server_name']` - The server_name to configure with Roundcube\'s web server
+ * `node['roundcube']['server_name']` - The server_name to configure with Roundcube's web server
  * `node['roundcube']['database']['user']` - Username to grant access privileges for database
  * `node['roundcube']['database']['password']` - Database password for the roundcube database user
  * `node['roundcube']['database']['schema']` - Name of the Roundcube database
@@ -55,24 +62,26 @@ Attributes
 
 Recipes
 -------
-### default
+#### `roundcube::default`
 The default recipe will update the apt package list initially, then install PHP & MySQL client and lastly install and configure Roundcube.
 
-### install
-TODO
+#### `roundcube::install`
+Installs Roundcube as defined by node attributes using ark.
 
-### configure
-TODO
+#### `roundcube::configure`
+Configures Roundcube only.
 
-### nginx
-TODO
+#### `roundcube::nginx`
+Installs and configures NGINX including needed dependencies and a vhost for Roundcube.
 
-### nginx_vhost
-TODO
+#### `roundcube::nginx_vhost`
+A dry recipe that provides a configuration file for an NGINX Roundcube vhost only. The NGINX service is notified to restart.
 
 Usage
 -----
-TODO
+The default recipe will install and configure Roundcube intefacing GMail for both IMAP and SMTP; no web server is configured - it is recommended to subsequently run the `roundcube::nginx` recipe (Apache HTTPd support TODO or contrib welcome).
+
+Note: this cookbook does not configure a database server for Roundcube, this should be done independently (see prerequisites above).
 
 Troubleshooting
 ---------------
