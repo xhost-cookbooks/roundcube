@@ -12,9 +12,9 @@ Vagrant.configure('2') do |config|
     chef.cookbooks_path = File.expand_path('~/.berkshelf/cookbooks')
     chef.json = {
     }
-
     chef.run_list = [
-      'recipe[roundcube::default]'
+      'recipe[roundcube::default]',
+      'recipe[roundcube::nginx]'
     ]
   end
 end
