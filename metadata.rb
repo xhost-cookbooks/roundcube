@@ -17,6 +17,7 @@ depends          'mysql'
 depends          'nginx'
 depends          'openssl'
 depends          'php'
+depends          'php-fpm'
 
 recipe           'roundcube::default',      "Installs and configures Roundcube."
 recipe           'roundcube::install',      "Installs Roundcube only."
