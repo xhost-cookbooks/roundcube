@@ -8,11 +8,10 @@ description      'Installs/Configures Roundcube Webmail.'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.1.0'
 
-%w( ubuntu debian ).each do |os|
+%w(ubuntu debian).each do |os|
   supports os
 end
 
-<<<<<<< HEAD
 depends          'apt'
 depends          'build-essential'
 depends          'ark'
@@ -21,14 +20,6 @@ depends          'nginx'
 depends          'openssl'
 depends          'php'
 depends          'php-fpm'
-=======
-depends 'apt'
-depends 'ark'
-depends 'mysql'
-depends 'nginx'
-depends 'openssl'
-depends 'php'
->>>>>>> b77807134b1254f36e0c710094b4bb77429e0640
 
 recipe 'roundcube::default',      'Installs and configures Roundcube.'
 recipe 'roundcube::install',      'Installs Roundcube only.'
