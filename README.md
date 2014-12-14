@@ -79,9 +79,15 @@ A dry recipe that provides a configuration file for an NGINX Roundcube vhost onl
 
 Usage
 -----
-The default recipe will install and configure Roundcube intefacing GMail for both IMAP and SMTP; no web server is configured - it is recommended to subsequently run the `roundcube::nginx` recipe (Apache HTTPd support TODO or contrib welcome).
+The default recipe will install and configure Roundcube intefacing GMail for both IMAP and SMTP; no web server is configured - it is recommended to also add the `roundcube::nginx` recipe to the run_list (Apache HTTPd support TODO or contrib welcome).
+
+When utilizing the nginx recipe, the `php-fpm` cookbook is used to configure PHP-FPM which by default provides a pool named 'www' with the socket residing in `/var/run/php-fpm-www.sock`.
 
 Note: this cookbook does not configure a database server for Roundcube, this should be done independently (see prerequisites above).
+
+Prototyping
+-----------
+TODO
 
 Troubleshooting
 ---------------
