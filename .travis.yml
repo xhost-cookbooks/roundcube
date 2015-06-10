@@ -8,3 +8,4 @@ before_install:
 script:
   - bundle exec foodcritic -f any .
   - bundle exec rubocop
+  - bundle exec rspec test/unit/spec
