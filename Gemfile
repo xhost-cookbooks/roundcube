@@ -14,7 +14,7 @@ gem 'berkshelf', '> 3.1'
 #   gem "vagrant-omnibus", github: "schisamo/vagrant-omnibus"
 # end
 
-gem 'chef', '> 11'
+gem 'chef', ENV.key?('CHEF_VERSION') ? ENV['CHEF_VERSION'] : '> 11'
 gem 'ohai', '~> 7.4' if RUBY_VERSION < '2' # Fix Ruby 1.9.3 support
 gem 'rake'
 gem 'rubocop'
