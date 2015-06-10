@@ -19,7 +19,7 @@ gem 'ohai', '~> 7.4' if RUBY_VERSION < '2' # Fix Ruby 1.9.3 support
 gem 'rake'
 gem 'rubocop'
 gem 'foodcritic'
-gem 'chefspec'
+gem 'chefspec', '~> 4.0'
 
 group :integration do
   gem 'test-kitchen'
