@@ -14,14 +14,18 @@ gem 'berkshelf', '> 3.1'
 #   gem "vagrant-omnibus", github: "schisamo/vagrant-omnibus"
 # end
 
-gem 'chef', '> 11'
+gem 'chef', ENV.key?('CHEF_VERSION') ? ENV['CHEF_VERSION'] : '> 11'
 gem 'ohai', '~> 7.4' if RUBY_VERSION < '2' # Fix Ruby 1.9.3 support
 gem 'rake'
 gem 'rubocop'
 gem 'foodcritic'
-gem 'chefspec'
-gem 'test-kitchen'
-gem 'kitchen-vagrant'
+gem 'chefspec', '~> 4.0'
+
+group :integration do
+  gem 'test-kitchen'
+  gem 'kitchen-vagrant'
+end
+
 gem 'guard', '>= 2.6'
 gem 'guard-rubocop', '>= 1.1'
 gem 'guard-foodcritic', '>= 1.0.2'
