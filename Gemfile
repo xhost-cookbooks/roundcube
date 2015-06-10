@@ -20,8 +20,12 @@ gem 'rake'
 gem 'rubocop'
 gem 'foodcritic'
 gem 'chefspec'
-gem 'test-kitchen'
-gem 'kitchen-vagrant'
+
+group :integration do
+  gem 'test-kitchen'
+  gem 'kitchen-vagrant'
+end
+
 gem 'guard', '>= 2.6'
 gem 'guard-rubocop', '>= 1.1'
 gem 'guard-foodcritic', '>= 1.0.2'
