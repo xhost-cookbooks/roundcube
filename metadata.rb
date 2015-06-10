@@ -15,7 +15,7 @@ end
 depends          'apt'
 depends          'build-essential'
 depends          'ark'
-depends          'mysql'
+depends          'mysql', '~> 5.0'
 depends          'nginx'
 depends          'openssl'
 depends          'php'
