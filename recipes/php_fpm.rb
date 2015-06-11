@@ -1,9 +1,9 @@
 # Encoding: utf-8
 #
 # Cookbook Name:: roundcube
-# Recipe:: install
+# Recipe:: php_fpm
 #
-# Copyright 2014, Chris Fordham
+# Copyright 2015, Xabier de Zuazo
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,12 +18,16 @@
 # limitations under the License.
 #
 
-ark 'roundcube' do
-  url node['roundcube']['download_url']
-  path node['roundcube']['install_dir']
-  checksum node['roundcube']['download_checksum']
-  version node['roundcube']['version']
-  owner node['nginx']['user']
+include_recipe 'php-fpm'
+
+php_fpm_pool node['roundcube']['php-fpm']['pool'] do
+  user node['nginx']['user']
   group node['nginx']['group']
-  action :put
+  listen_owner node['nginx']['user']
+  listen_group node['nginx']['group']
+  listen_mode '0660'
+  # Fix php-fpm cookbook ubuntu support
+  if node['platform'] == 'ubuntu' && node['platform_version'].to_i < 12
+    process_manager 'dynamic'
+  end
 end

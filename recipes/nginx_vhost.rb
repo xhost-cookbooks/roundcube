@@ -23,7 +23,9 @@ template '/etc/nginx/sites-available/00-roundcube' do
   variables(
     roundcube_dir: "#{node['roundcube']['install_dir']}/roundcube",
     listen_port: node['roundcube']['listen_port'],
-    server_name: node['roundcube']['server_name']
+    server_name: node['roundcube']['server_name'],
+    fastcgi_pass:
+      "unix:/var/run/php-fpm-#{node['roundcube']['php-fpm']['pool']}.sock"
   )
   notifies :restart, 'service[nginx]', :delayed
 end

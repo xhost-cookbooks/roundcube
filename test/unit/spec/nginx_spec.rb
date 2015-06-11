@@ -11,8 +11,8 @@ describe 'roundcube::nginx' do
     expect(chef_run).to include_recipe('nginx')
   end
 
-  it 'includes php-fpm recipe' do
-    expect(chef_run).to include_recipe('php-fpm')
+  it 'includes roundcube::php_fpm recipe' do
+    expect(chef_run).to include_recipe('roundcube::php_fpm')
   end
 
   %w(

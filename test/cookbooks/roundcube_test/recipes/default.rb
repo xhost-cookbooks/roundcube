@@ -1,9 +1,9 @@
 # Encoding: utf-8
 #
 # Cookbook Name:: roundcube
-# Recipe:: install
+# Recipe:: default
 #
-# Copyright 2014, Chris Fordham
+# Copyright 2015, Xabier de Zuazo
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,12 +18,8 @@
 # limitations under the License.
 #
 
-ark 'roundcube' do
-  url node['roundcube']['download_url']
-  path node['roundcube']['install_dir']
-  checksum node['roundcube']['download_checksum']
-  version node['roundcube']['version']
-  owner node['nginx']['user']
-  group node['nginx']['group']
-  action :put
-end
+include_recipe 'roundcube::nginx'
+include_recipe 'roundcube::default'
+
+# Required for the integration tests
+include_recipe 'nokogiri'

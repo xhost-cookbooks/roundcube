@@ -19,7 +19,7 @@
 #
 
 include_recipe 'nginx'
-include_recipe 'php-fpm'
+include_recipe 'roundcube::php_fpm' # Required for Debian 6 and Ubuntu 10
 
 # additional (recommended) packages
 ['php5-mcrypt',
