@@ -1,1 +1,1 @@
-This cookbook is used with [test-kitchen](http://kitchen.ci/) to test the parent, [roundcube](https://supermarket.getchef.com/cookbooks/roundcube) cookbook.
+This cookbook is used with [test-kitchen](http://kitchen.ci/) to test the parent, [roundcube](https://supermarket.chef.io/cookbooks/roundcube) cookbook.
