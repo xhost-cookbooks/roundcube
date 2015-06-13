@@ -26,6 +26,7 @@ recipe 'roundcube::install',      'Installs Roundcube only.'
 recipe 'roundcube::configure',    'Configures Roundcube.'
 recipe 'roundcube::nginx',        'Configures Roundcube on NGINX.'
 recipe 'roundcube::nginx_vhost',  'Sets up an NGINX site only.'
+recipe 'roundcube::php_fpm',      'Installs the PHP-FPM pool.'
 
 attribute 'roundcube/download_url',
           display_name: 'Roundcube Download URL',

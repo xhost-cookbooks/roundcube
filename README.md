@@ -88,11 +88,14 @@ Installs and configures NGINX including needed dependencies and a vhost for Roun
 #### `roundcube::nginx_vhost`
 A dry recipe that provides a configuration file for an NGINX Roundcube vhost only. The NGINX service is notified to restart.
 
+#### `roundcube::php_fpm`
+A recipe that installs the PHP-FPM pool. Used by the `roundcube::nginx` recipe.
+
 Usage
 -----
 The default recipe will install and configure Roundcube intefacing GMail for both IMAP and SMTP; no web server is configured - it is recommended to also add the `roundcube::nginx` recipe to the run_list (Apache HTTPd support TODO or contrib welcome).
 
-When utilizing the nginx recipe, the `php-fpm` cookbook is used to configure PHP-FPM which by default provides a pool named 'www' with the socket residing in `/var/run/php-fpm-www.sock`.
+When utilizing the nginx recipe, the `php-fpm` cookbook is used to configure PHP-FPM and adds a pool named 'roundcube' with the socket residing in `/var/run/php-fpm-roundcube.sock`.
 
 Note: this cookbook does not configure a database server for Roundcube, this should be done independently (see prerequisites above).
 
