@@ -20,6 +20,16 @@
 
 include_recipe 'php-fpm'
 
+# Fix PHP session error on CentOS:
+# session_start(): open(/var/lib/php/session/..., O_RDWR) failed: No such file
+# or directory (2)
+directory '/var/lib/php/session' do
+  owner node['nginx']['user']
+  group node['nginx']['group']
+  mode '00700'
+  only_if { %w(centos).include?(node['platform']) }
+end
+
 php_fpm_pool node['roundcube']['php-fpm']['pool'] do
   user node['nginx']['user']
   group node['nginx']['group']

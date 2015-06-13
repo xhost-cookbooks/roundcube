@@ -22,4 +22,5 @@ include_recipe 'roundcube::nginx'
 include_recipe 'roundcube::default'
 
 # Required for the integration tests
+package 'patch'
 include_recipe 'nokogiri'

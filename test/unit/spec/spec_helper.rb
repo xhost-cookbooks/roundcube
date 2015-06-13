@@ -17,9 +17,10 @@ require_relative 'matchers'
 
 def stub_resources
   stub_command('which nginx').and_return(true)
-  stub_command(
-    'test -d /etc/php5/fpm/pool.d || mkdir -p /etc/php5/fpm/pool.d'
-  ).and_return(true)
+  stub_command('test -d /etc/php5/fpm/pool.d || mkdir -p /etc/php5/fpm/pool.d')
+    .and_return(true)
+  stub_command('test -d /etc/php-fpm.d || mkdir -p /etc/php-fpm.d')
+    .and_return(true)
 end
 
 at_exit { ChefSpec::Coverage.report! }

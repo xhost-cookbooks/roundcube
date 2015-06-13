@@ -35,9 +35,18 @@ GRANT ALL ON *.* to roundcube@'%' IDENTIFIED BY 's3cure_as';
 Requirements
 ------------
 ### Supported Platforms
- * Debian/Ubuntu
+
+ * Debian
+ * Ubuntu
+ * CentOS
+ * Fedora
+ * RedHat
 
 Contribution for other platforms welcome (submit a pull request).
+
+### Other Requirements
+
+On RedHat based platforms, you need to disable or configure SELinux correctly to work with `mysql` and `php-fpm` cookbooks. You can use the `selinux::disabled` recipe for that.
 
 Attributes
 ----------
@@ -57,8 +66,10 @@ Attributes
  * `node['roundcube']['database']['schema']` - Name of the Roundcube database
  * `node['roundcube']['smtp']['server']` - The hostname or IP of the SMTP server for Roundcube to interface with for sending mails
  * `node['roundcube']['smtp']['port']` - The port of the SMTP server for sending mails
- * `node['roundcube']['smtp']['user']` = The SMTP username
- * `node['roundcube']['smtp']['password']` = The SMTP password
+ * `node['roundcube']['smtp']['user']` - The SMTP username
+ * `node['roundcube']['smtp']['password']` - The SMTP password
+ * `node['roundcube']['php_packages']` - The required PHP packages to install
+ * `node['roundcube']['php-fpm']['pool']` - The PHP-FPM pool name to use by Roundcube
 
 Recipes
 -------
