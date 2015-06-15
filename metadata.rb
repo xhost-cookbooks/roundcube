@@ -8,7 +8,7 @@ description      'Installs/Configures Roundcube Webmail.'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 version          '0.2.0'
 
-%w(ubuntu debian).each do |os|
+%w(ubuntu debian centos fedora redhat).each do |os|
   supports os
 end
 
@@ -26,6 +26,7 @@ recipe 'roundcube::install',      'Installs Roundcube only.'
 recipe 'roundcube::configure',    'Configures Roundcube.'
 recipe 'roundcube::nginx',        'Configures Roundcube on NGINX.'
 recipe 'roundcube::nginx_vhost',  'Sets up an NGINX site only.'
+recipe 'roundcube::php_fpm',      'Installs the PHP-FPM pool.'
 
 attribute 'roundcube/download_url',
           display_name: 'Roundcube Download URL',
@@ -134,3 +135,16 @@ attribute 'roundcube/smtp/password',
           description: 'The SMTP password (default: password provided on login form).',
           default: '%p',
           recipes: ['roundcube::default', 'roundcube::configure']
+
+attribute 'roundcube/php_packages',
+          display_name: 'Roundcube PHP packages',
+          description: 'The required PHP packages to install.',
+          calculated: true,
+          recipes: ['roundcube::default', 'roundcube::install']
+
+attribute 'roundcube/php-fpm/pool',
+          display_name: 'Roundcube PHP-FPM pool',
+          description: 'The PHP-FPM pool name to use by Roundcube.',
+          default: 'roundcube',
+          recipes:
+            ['roundcube::nginx', 'roundcube::nginx_vhost', 'roundcube::php_fpm']

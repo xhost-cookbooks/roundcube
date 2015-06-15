@@ -19,17 +19,10 @@
 #
 
 include_recipe 'nginx'
-include_recipe 'php-fpm'
-
-# additional (recommended) packages
-['php5-mcrypt',
- 'php5-intl',
- 'php5-cli',
- 'php5-mysql'].each { |package| package package }
+include_recipe 'roundcube::php_fpm' # Required for Debian 6 and Ubuntu 10
 
 include_recipe 'roundcube::nginx_vhost'
 
-execute 'nxdissite default'
 execute 'nxensite 00-roundcube'
 
 service 'nginx' do

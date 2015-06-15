@@ -1,7 +1,6 @@
 server {
        listen <%= @listen_port %>;
        server_name <%= @server_name %>;
-       disable_symlinks off;
        root <%= @roundcube_dir %>;
 
        index index.php index.html;
@@ -33,11 +32,12 @@ server {
                 log_not_found off;
        }
 
-       location ~ \.php$ {
-                try_files $uri =404;
-                include /etc/nginx/fastcgi_params;
-                fastcgi_pass unix:/var/run/php-fpm-www.sock;
-                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+       location ~ ^(.+?\.php)(/.*)?$ {
+                try_files $1 =404;
+                include fastcgi_params;
+                fastcgi_pass <%= @fastcgi_pass %>;
+                fastcgi_param SCRIPT_FILENAME $document_root$1;
+                fastcgi_param PATH_INFO $2;
                 fastcgi_index index.php;
        }
 }

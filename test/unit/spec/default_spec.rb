@@ -13,7 +13,7 @@ describe 'roundcube::default' do
     roundcube::install
     roundcube::configure
   ).each do |recipe|
-    it "include #{recipe} recipe" do
+    it "includes #{recipe} recipe" do
       expect(chef_run).to include_recipe(recipe)
     end
   end # each recipe

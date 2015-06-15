@@ -1,9 +1,9 @@
 # Encoding: utf-8
 #
 # Cookbook Name:: roundcube
-# Recipe:: nginx_vhost
+# Recipe:: default
 #
-# Copyright 2014, Chris Fordham
+# Copyright 2015, Xabier de Zuazo
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,14 +18,9 @@
 # limitations under the License.
 #
 
-template '/etc/nginx/sites-available/00-roundcube' do
-  source 'nginx_vhost.erb'
-  variables(
-    roundcube_dir: "#{node['roundcube']['install_dir']}/roundcube",
-    listen_port: node['roundcube']['listen_port'],
-    server_name: node['roundcube']['server_name'],
-    fastcgi_pass:
-      "unix:/var/run/php-fpm-#{node['roundcube']['php-fpm']['pool']}.sock"
-  )
-  notifies :restart, 'service[nginx]', :delayed
-end
+include_recipe 'roundcube::nginx'
+include_recipe 'roundcube::default'
+
+# Required for the integration tests
+package 'patch'
+include_recipe 'nokogiri'

@@ -2,12 +2,6 @@
 
 require_relative 'spec_helper'
 
-%w(php5-mcrypt php5-intl php5-cli php5-mysql).each do |pkg|
-  describe package(pkg) do
-    it { should be_installed }
-  end
-end
-
 describe file('/etc/nginx/sites-available/00-roundcube') do
   it { should be_file }
   it { should be_owned_by 'root' }

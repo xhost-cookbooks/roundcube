@@ -35,9 +35,18 @@ GRANT ALL ON *.* to roundcube@'%' IDENTIFIED BY 's3cure_as';
 Requirements
 ------------
 ### Supported Platforms
- * Debian/Ubuntu
+
+ * Debian
+ * Ubuntu
+ * CentOS
+ * Fedora
+ * RedHat
 
 Contribution for other platforms welcome (submit a pull request).
+
+### Other Requirements
+
+On RedHat based platforms, you need to disable or configure SELinux correctly to work with `mysql` and `php-fpm` cookbooks. You can use the `selinux::disabled` recipe for that.
 
 Attributes
 ----------
@@ -57,8 +66,10 @@ Attributes
  * `node['roundcube']['database']['schema']` - Name of the Roundcube database
  * `node['roundcube']['smtp']['server']` - The hostname or IP of the SMTP server for Roundcube to interface with for sending mails
  * `node['roundcube']['smtp']['port']` - The port of the SMTP server for sending mails
- * `node['roundcube']['smtp']['user']` = The SMTP username
- * `node['roundcube']['smtp']['password']` = The SMTP password
+ * `node['roundcube']['smtp']['user']` - The SMTP username
+ * `node['roundcube']['smtp']['password']` - The SMTP password
+ * `node['roundcube']['php_packages']` - The required PHP packages to install
+ * `node['roundcube']['php-fpm']['pool']` - The PHP-FPM pool name to use by Roundcube
 
 Recipes
 -------
@@ -77,11 +88,14 @@ Installs and configures NGINX including needed dependencies and a vhost for Roun
 #### `roundcube::nginx_vhost`
 A dry recipe that provides a configuration file for an NGINX Roundcube vhost only. The NGINX service is notified to restart.
 
+#### `roundcube::php_fpm`
+A recipe that installs the PHP-FPM pool. Used by the `roundcube::nginx` recipe.
+
 Usage
 -----
 The default recipe will install and configure Roundcube intefacing GMail for both IMAP and SMTP; no web server is configured - it is recommended to also add the `roundcube::nginx` recipe to the run_list (Apache HTTPd support TODO or contrib welcome).
 
-When utilizing the nginx recipe, the `php-fpm` cookbook is used to configure PHP-FPM which by default provides a pool named 'www' with the socket residing in `/var/run/php-fpm-www.sock`.
+When utilizing the nginx recipe, the `php-fpm` cookbook is used to configure PHP-FPM and adds a pool named 'roundcube' with the socket residing in `/var/run/php-fpm-roundcube.sock`.
 
 Note: this cookbook does not configure a database server for Roundcube, this should be done independently (see prerequisites above).
 
