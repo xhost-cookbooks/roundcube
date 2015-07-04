@@ -1,6 +1,6 @@
-default['roundcube']['version'] = '1.0.2'
+default['roundcube']['version'] = '1.1.2'
 default['roundcube']['download_url'] = "https://github.com/roundcube/roundcubemail/releases/download/#{node['roundcube']['version']}/roundcubemail-#{node['roundcube']['version']}.tar.gz"
-default['roundcube']['download_checksum'] = '1c1560a7a56e6884b45c49f52961dbbb3f6bacbc7e7c755440750a1ab027171c'
+default['roundcube']['download_checksum'] = '70d07106468d0e82142df44bd4504183ae30487fa2d71100fb7fd58b773c0c98'
 default['roundcube']['install_dir'] = '/srv'
 default['roundcube']['default_host'] = 'ssl://imap.gmail.com:993'
 default['roundcube']['support_url'] = ''
