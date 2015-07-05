@@ -6,7 +6,7 @@ describe 'roundcube::install' do
   before { stub_resources }
   let(:chef_runner) { ChefSpec::ServerRunner.new }
   let(:chef_run) { chef_runner.converge(described_recipe) }
-  let(:version) { '1.0.2' }
+  let(:version) { '1.1.2' }
 
   %w(
     php5-mcrypt
@@ -78,7 +78,7 @@ describe 'roundcube::install' do
       )
       .with_path('/srv')
       .with_checksum(
-        '1c1560a7a56e6884b45c49f52961dbbb3f6bacbc7e7c755440750a1ab027171c'
+        '70d07106468d0e82142df44bd4504183ae30487fa2d71100fb7fd58b773c0c98'
       )
       .with_version(version)
       .with_owner('www-data')
