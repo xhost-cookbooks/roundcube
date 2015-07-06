@@ -8,3 +8,6 @@ WordArray:
 
 SingleSpaceBeforeFirstArg:
   Enabled: false
+
+RegexpLiteral:
+  MaxSlashes: 0
